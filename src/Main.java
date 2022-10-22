@@ -3,7 +3,7 @@ import java.time.LocalDate;
 public class Main {
     public static void main(String[] args) {
         createHuman();
-        createCar();
+        //createCar();
     }
 
     private static void createHuman() {
@@ -11,45 +11,52 @@ public class Main {
 
         final int CURR_YEAR = LocalDate.now().getYear();
 
+        Human vladimir = new Human(21, "Владимир", "Казани", null);
+        System.out.println("Привет! Меня зовут " + vladimir.name
+                + ". Я из города " + vladimir.getTown()
+                + ". Я родился в " + (CURR_YEAR - vladimir.getYearOfBirth())
+                + " году. Я работаю на должности " + vladimir.job
+                + ". Будем знакомы!");
+
         Human maxim = new Human(35, "Максим", "Минск", "бренд-менеджер");
         System.out.println("Привет! Меня зовут " + maxim.name
-                + ". Я из города " + maxim.town
-                + ". Я родился в " + (CURR_YEAR - maxim.yearOfBirth)
+                + ". Я из города " + maxim.getTown()
+                + ". Я родился в " + (CURR_YEAR - maxim.getYearOfBirth())
                 + " году. Я работаю на должности " + maxim.job
                 + ". Будем знакомы!");
 
         Human any = new Human(29, "Аня", "Москва", "методист образовательных программ");
         System.out.println("Привет! Меня зовут " + any.name
-                + ". Я из города " + any.town
-                + ". Я родилась в " + (CURR_YEAR - any.yearOfBirth)
+                + ". Я из города " + any.getTown()
+                + ". Я родилась в " + (CURR_YEAR - any.getYearOfBirth())
                 + " году. Я работаю на должности " + any.job
                 + ". Будем знакомы!");
 
         Human katy = new Human(28, "Катя", "Калининград", "продакт-менеджер");
         System.out.println("Привет! Меня зовут " + katy.name
-                + ". Я из города " + katy.town
-                + ". Я родилась в " + (CURR_YEAR - katy.yearOfBirth)
+                + ". Я из города " + katy.getTown()
+                + ". Я родилась в " + (CURR_YEAR - katy.getYearOfBirth())
                 + " году. Я работаю на должности " + katy.job
                 + ". Будем знакомы!");
 
         Human artem = new Human(27, "Артем", "Москва", "директор по развитию бизнеса");
         System.out.println("Привет! Меня зовут " + artem.name
-                + ". Я из города " + artem.town
-                + ". Я родился в " + (CURR_YEAR - artem.yearOfBirth)
+                + ". Я из города " + artem.getTown()
+                + ". Я родился в " + (CURR_YEAR - artem.getYearOfBirth())
                 + " году. Я работаю на должности " + artem.job
                 + ". Будем знакомы!");
 
         Human testInParam = new Human(-1, "Test", "Test", "test");
         System.out.println("Привет! Меня зовут " + testInParam.name
-                + ". Я из города " + testInParam.town
-                + ". Я родился в " + (CURR_YEAR - testInParam.yearOfBirth)
+                + ". Я из города " + testInParam.getTown()
+                + ". Я родился в " + (CURR_YEAR - testInParam.getYearOfBirth())
                 + " году. Я работаю на должности " + testInParam.job
                 + ". Будем знакомы!");
 
         Human testInParam2 = new Human(5, null, "", "");
         System.out.println("Привет! Меня зовут " + testInParam2.name
-                + ". Я из города " + testInParam2.town
-                + ". Я родился в " + (CURR_YEAR - testInParam2.yearOfBirth)
+                + ". Я из города " + testInParam2.getTown()
+                + ". Я родился в " + (CURR_YEAR - testInParam2.getYearOfBirth())
                 + " году. Я работаю на должности " + testInParam2.job
                 + ". Будем знакомы!");
     }

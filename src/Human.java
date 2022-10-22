@@ -1,16 +1,18 @@
 public class Human {
-    public int yearOfBirth;
+    private int yearOfBirth;
     public String name;
-    public String town;
+    private String town;
 
     public String job;
 
+    public Human(String name, String town, String job) {
+        this(0, name, town, job);
+    }
     public Human(int yearOfBirth, String name, String town, String job) {
-        if (yearOfBirth < 0) {
-            //throw new IllegalArgumentException("Возраст не может быть отрицательным");
-            System.out.println("Возраст не может быть отрицательным");
-            this.yearOfBirth = 1;
-        }else
+        if (yearOfBirth <= 0) {
+            //throw new IllegalArgumentException("Возраст не может быть отрицательным и нулевым");
+            this.yearOfBirth = 0;
+        } else
         {
             this.yearOfBirth = yearOfBirth;
         }
@@ -32,5 +34,21 @@ public class Human {
         }else {
             this.job = job;
         }
+    }
+
+    public int getYearOfBirth() {
+        return yearOfBirth;
+    }
+
+    public String getTown() {
+        return town;
+    }
+
+    public void setYearOfBirth(int yearOfBirth) {
+        this.yearOfBirth = yearOfBirth;
+    }
+
+    public void setTown(String town) {
+        this.town = town;
     }
 }
