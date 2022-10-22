@@ -2,8 +2,25 @@ import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
-        createHuman();
+        //createHuman();
         //createCar();
+        createFlower();
+    }
+
+    private static void createFlower() {
+        System.out.println("Создаем Цветник:");
+        Flower roza = new Flower("Роза", "красный", "Голландия", 35.59f);
+        System.out.println(roza);
+
+        Flower hrizantema = new Flower("Хризантема", "", "", 15, 5);
+        System.out.println(hrizantema);
+
+        Flower pion = new Flower("Пион", "", "Англии", 69.9f,1);
+        System.out.println(pion);
+
+        Flower gipsofila = new Flower("Гипсофила", "", "Турция", 19.5f,10);
+        System.out.println(gipsofila);
+
     }
 
     private static void createHuman() {
