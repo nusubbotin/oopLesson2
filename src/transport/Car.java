@@ -20,6 +20,26 @@ public class Car {
     private int numberOfSeats;
     private String carTires;
 
+    public class Key {
+        private boolean remoteEngineStart;
+        private boolean keylessEntry;
+
+        public Key(boolean remoteEngineStart, boolean keylessEntry) {
+            this.remoteEngineStart = remoteEngineStart;
+            this.keylessEntry = keylessEntry;
+        }
+
+        public boolean isRemoteEngineStart() {
+            return remoteEngineStart;
+        }
+
+        public boolean isKeylessEntry() {
+            return keylessEntry;
+        }
+    }
+
+    private Key key;
+
     public Car(String brand, String model, float engineVolume, String color, int productionYear, String productionCountry, String transmission, String bodyType, String registrationNumber, int numberOfSeats, String carTires) {
         if (brand == null || brand.isEmpty()) {
             this.brand = "default";
@@ -151,6 +171,15 @@ public class Car {
             this.carTires = carTires;
         }
     }
+
+    public void setKey(Key key) {
+        if (this.key == null) {
+            this.key = key;
+        }else {
+            throw new IllegalArgumentException("Параметры ключа уже установлены. Изменять запрещено!");
+        }
+    }
+
     public void changeTires() {
         if (this.carTires == CAT_TIRES_SUMMER) {
             this.carTires = CAT_TIRES_WINTER;

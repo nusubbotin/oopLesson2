@@ -95,5 +95,11 @@ public class Main {
 
         hyundai.changeTires();
         System.out.println("hyundai.getCarTires() = " + hyundai.getCarTires());
+
+        Car.Key key = hyundai.new Key(true, true);
+        hyundai.setKey(key);
+
+        //Car.Key key2 = hyundai.new Key(true, false);
+        //hyundai.setKey(key2);
     }
 }
