@@ -1,5 +1,6 @@
 package transport;
 
+import java.time.LocalDate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -38,7 +39,58 @@ public class Car {
         }
     }
 
+    public class Insurance {
+        private int validityYear;
+        private float price;
+        private String number;
+
+        public Insurance(int validityYear, float price, String number) {
+            if (validityYear <= 0) {
+                throw new IllegalArgumentException("Срок действия должен быть положительным целым числом");
+            }else {
+                this.validityYear = validityYear;
+            }
+
+            if (price <= 0) {
+                throw new IllegalArgumentException("Стоимость должена быть положительным числом");
+            }else {
+                this.price = price;
+            }
+
+            if (number == null || number.isEmpty()) {
+                throw new IllegalArgumentException("Номер страховки доджен быть заполнен");
+            } else if (!checkNumberLength(number)) {
+                throw new IllegalArgumentException("Номер страховки должен состоять из 9 символов");
+            } else {
+                this.number = number;
+            }
+        }
+
+        private boolean checkNumberLength(String number){
+            if (number != null && number.length() != 9){
+                return false;
+            }else {
+                return true;
+            }
+        }
+
+        public void  checkExpired() {
+            if (this.validityYear >= LocalDate.now().getYear()){
+                System.out.println("Срочно ехать оформлять новую страховку!");
+            }
+        }
+
+        @Override
+        public String toString() {
+            return  "validityYear= " + validityYear +
+                    ", price= " + price +
+                    ", number= " + number;
+        }
+    }
+
     private Key key;
+
+    private Insurance insurance;
 
     public Car(String brand, String model, float engineVolume, String color, int productionYear, String productionCountry, String transmission, String bodyType, String registrationNumber, int numberOfSeats, String carTires) {
         if (brand == null || brand.isEmpty()) {
@@ -180,6 +232,10 @@ public class Car {
         }
     }
 
+    public void setInsurance(Insurance insurance) {
+        this.insurance = insurance;
+    }
+
     public void changeTires() {
         if (this.carTires == CAT_TIRES_SUMMER) {
             this.carTires = CAT_TIRES_WINTER;
@@ -205,6 +261,7 @@ public class Car {
                 + "; Тип кузова: " + this.bodyType
                 + "; Регистрационный номер: " + this.registrationNumber
                 + "; Количество мест: " + this.numberOfSeats
-                + "; Тип резины: " + this.carTires;
+                + "; Тип резины: " + this.carTires
+                + "; Сведения о страховке: (" + this.insurance + ")";
     }
 }
