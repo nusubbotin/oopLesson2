@@ -1,10 +1,12 @@
+import transport.Car;
+
 import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
         //createHuman();
-        //createCar();
-        createFlower();
+        createCar();
+        //createFlower();
     }
 
     private static void createFlower() {
@@ -80,44 +82,18 @@ public class Main {
     private static void createCar() {
         System.out.println("Создаем автопарк:");
 
-        Car ladaGranta = new Car("Lada", "Granta", 1.7f, "желтый", 2015, "России");
-        System.out.println("Бренд: "+ ladaGranta.brand
-                + "; Модель: " + ladaGranta.model
-                + "; Объем двигателя: " + ladaGranta.engineVolume
-                + "; Цвет кузова: " + ladaGranta.color
-                + "; Год производства: " + ladaGranta.productionYear
-                + "; Страна сборки: " + ladaGranta.productionCountry);
+        Car ladaGranta = new Car("Lada", "Granta", 1.7f, "желтый", 2015, "России","механика", "внедорожник", "v123vv123", 4, Car.CAT_TIRES_SUMMER);
+        System.out.println(ladaGranta);
+        Car audi = new Car("Audi", "A8 50 L TDI quattro", 3, "черный", 2020, "Германия","механика", "внедорожник", "n123nn123", 4, Car.CAT_TIRES_SUMMER);
+        System.out.println(audi);
+        Car bmw = new Car("BMW", "Z8", 3, "черный", 2021, "Германия","механика", "внедорожник", "t123tt123", 4, Car.CAT_TIRES_SUMMER);
+        System.out.println(bmw);
+        Car kia = new Car("Kia", "Sportage 4-го поколения", 2.4f, "красный", 2018, "Южная Корея","механика", "внедорожник", "5123fg123", 4, Car.CAT_TIRES_SUMMER);
+        System.out.println(kia);
+        Car hyundai = new Car("", "", 0, "", 0, "","механика", "внедорожник", "q123er123", 4, Car.CAT_TIRES_SUMMER);
+        System.out.println(hyundai);
 
-        Car audi = new Car("Audi", "A8 50 L TDI quattro", 3, "черный", 2020, "Германия");
-        System.out.println("Бренд: "+ audi.brand
-                + "; Модель: " + audi.model
-                + "; Объем двигателя: " + audi.engineVolume
-                + "; Цвет кузова: " + audi.color
-                + "; Год производства: " + audi.productionYear
-                + "; Страна сборки: " + audi.productionCountry);
-
-        Car bmw = new Car("BMW", "Z8", 3, "черный", 2021, "Германия");
-        System.out.println("Бренд: "+ bmw.brand
-                + "; Модель: " + bmw.model
-                + "; Объем двигателя: " + bmw.engineVolume
-                + "; Цвет кузова: " + bmw.color
-                + "; Год производства: " + bmw.productionYear
-                + "; Страна сборки: " + bmw.productionCountry);
-
-        Car kia = new Car("Kia", "Sportage 4-го поколения", 2.4f, "красный", 2018, "Южная Корея");
-        System.out.println("Бренд: "+ kia.brand
-                + "; Модель: " + kia.model
-                + "; Объем двигателя: " + kia.engineVolume
-                + "; Цвет кузова: " + kia.color
-                + "; Год производства: " + kia.productionYear
-                + "; Страна сборки: " + kia.productionCountry);
-
-        Car hyundai = new Car("", "", 0, "", 0, "");
-        System.out.println("Бренд: "+ hyundai.brand
-                + "; Модель: " + hyundai.model
-                + "; Объем двигателя: " + hyundai.engineVolume
-                + "; Цвет кузова: " + hyundai.color
-                + "; Год производства: " + hyundai.productionYear
-                + "; Страна сборки: " + hyundai.productionCountry);
+        hyundai.changeTires();
+        System.out.println("hyundai.getCarTires() = " + hyundai.getCarTires());
     }
 }
